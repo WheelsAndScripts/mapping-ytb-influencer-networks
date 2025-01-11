@@ -4,13 +4,14 @@ from dotenv import load_dotenv
 
 
 def ytb_api_connexion():
-    """_summary_
+    """
+    Initializes a connection to the YouTube Data API v3 using an API key stored in a .env file.
 
     Raises:
-        ValueError: _description_
+        ValueError: If the YouTube API key is not found in the .env file or is invalid.
 
     Returns:
-        _type_: _description_
+        googleapiclient.discovery.Resource: A YouTube API client instance ready to make requests.
     """
 
     # Remplace par ta clé API
@@ -26,14 +27,30 @@ def ytb_api_connexion():
 
 
 def get_channel_info(channel_ids, youtube):
-    """_summary_
+    """
+    Retrieves detailed information about a list of YouTube channels using the YouTube Data API v3.
 
     Args:
-        channel_ids (list): list of channel IDs
-        youtube (object): the build object from googleapiclient.discovery
+        channel_ids (list): A list of YouTube channel IDs to fetch information for.
+        youtube (googleapiclient.discovery.Resource): An instance of the YouTube API client.
 
     Returns:
-        _type_: _description_
+        list: A list of dictionaries, each containing the following details about a channel:
+            - channel_id (str): The unique ID of the channel.
+            - channel_name (str): The name of the channel.
+            - description (str): The description of the channel.
+            - subscriber_count (str): The number of subscribers to the channel.
+            - video_count (str): The total number of videos uploaded by the channel.
+            - views (str): The total number of views on the channel.
+            - playlistId (str): The ID of the playlist containing the channel's uploads.
+            - featured_channels (list): A list of featured channel URLs (if available).
+
+    Notes:
+        The list of subscribers or subscriptions for a channel is not available via the YouTube Data API.
+
+    Raises:
+        KeyError: If any expected fields are missing in the API response.
+
     """
 
     # Appel à l'API pour récupérer les informations des chaînes
