@@ -9,11 +9,13 @@
 - Titres et descriptions des vidéos (chercher des mentions d'autres chaînes ou noms explicites).
 - Collaborateurs explicitement ajoutés (via `snippet.channelId` dans les réponses de vidéos).
 
+
 ### 2. Relations basées sur les abonnés communs
 **Idée :** Deux chaînes sont liées si elles partagent des abonnés.  
 **Données à collecter :**
 - Liste des abonnés (limité, car l'API n'expose pas directement ces données pour toutes les chaînes).
 - Si possible, liste des chaînes auxquelles une chaîne est abonnée.
+
 
 ### 3. Relations basées sur les thèmes (tags ou catégories de contenu)
 **Idée :** Deux chaînes sont liées si elles produisent des vidéos sur des thèmes similaires.  
@@ -22,22 +24,19 @@
 - Catégories des vidéos (`categoryId` dans `snippet`).
 - Titres et descriptions des vidéos (analyse de mots-clés).
 
-### 4. Relations basées sur les mentions dans les commentaires
+
+### 4. Relations basées sur les recommandations croisées
+**Idée :** Deux chaînes sont liées si l'une recommande l'autre dans sa section "Chaînes en vedette".  
+**Données à collecter :**
+- Liste des chaînes en vedette d'une chaîne (`brandingSettings.channel.featuredChannelsUrls` dans `channels.list`).
+
+
+### 5. Relations basées sur les mentions dans les commentaires (à réfléchir)
 **Idée :** Deux chaînes sont liées si leurs vidéos ont des interactions via des commentaires mentionnant d'autres chaînes.  
 **Données à collecter :**
 - Commentaires sous les vidéos publiées par une chaîne (via `commentThreads`).
 - Identifiants des utilisateurs/commentateurs (`authorChannelId` dans `topLevelComment.snippet`).
 - Recherche de mentions d'autres chaînes (`@NomDeChaîne`).
-
-### 5. Relations basées sur les recommandations croisées
-**Idée :** Deux chaînes sont liées si l'une recommande l'autre dans sa section "Chaînes en vedette".  
-**Données à collecter :**
-- Liste des chaînes en vedette d'une chaîne (`brandingSettings.channel.featuredChannelsUrls` dans `channels.list`).
-
-### 6. Relations basées sur des mots-clés communs dans les titres/descriptions
-**Idée :** Deux chaînes sont liées si elles utilisent les mêmes mots-clés dans leurs vidéos, ce qui peut indiquer un domaine commun.  
-**Données à collecter :**
-- Titres et descriptions des vidéos (analyse textuelle).
 
 
 
