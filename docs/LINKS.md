@@ -17,7 +17,8 @@ Deux chaînes sont liées si elles partagent des abonnés.
 
 **Données à collecter**  
 - Liste des abonnés (limité, car l'API n'expose pas directement ces données pour toutes les chaînes).  
-- Si possible, liste des chaînes auxquelles une chaîne est abonnée.
+- Si possible, liste des chaînes auxquelles une chaîne est abonnée (limité, car l'API n'expose pas directement ces données pour toutes les chaînes).
+-> update : je ne trouve pas d'accès aux informations d'abonnements via l'API
 
 ---
 
@@ -35,6 +36,7 @@ Deux chaînes sont liées si elles produisent des vidéos sur des thèmes simila
 ## 4. Relations basées sur les recommandations croisées
 **Idée**  
 Deux chaînes sont liées si l'une recommande l'autre dans sa section "Chaînes en vedette".  
+Limite : à priori, cette information n'est pas toujours présente.
 
 **Données à collecter**  
 - Liste des chaînes en vedette d'une chaîne (`brandingSettings.channel.featuredChannelsUrls` dans `channels.list`).
