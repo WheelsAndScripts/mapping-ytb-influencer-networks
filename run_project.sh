@@ -7,10 +7,16 @@ source ~/Documents/Perso/Environnments/influencer_networks/Scripts/activate
 cd ~/Documents/Perso/Portfolios/mapping-ytb-influencer-networks
 
 # Exécute le script Python (test du shell)
-echo "Excuting the script"
-python script1.py
+echo "Test !"
+python test.py
+
+# Main pipeline
+# echo "Running main pipeline..."
+# python main.py
 
 # Étape 1 : Collecte des données via l'API YouTube
+echo "Collecting data from YouTube API"
+python collecting_data.py
 
 # Étape 2 : Envoi des données dans Kafka (ingestion des données)
 
